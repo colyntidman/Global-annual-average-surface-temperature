@@ -2,7 +2,7 @@
 
 We found on a the NASA website : https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt
 
-```
+```python
 import pandas
 
 url_nasa_termperatures = "https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt"
@@ -14,7 +14,7 @@ df.tail(10)
 Here we can see the evolution of the average surface temperature anomaly from the last 10 years. <br>
 Now lets visualize this information with a graph using pyplot :
 
-```
+```python
 import matplotlib.pyplot as plt
 
 plt.plot(df["Year"], df["Detla (Smoothed)"], label = "Delta (Smoothed)", color='red')

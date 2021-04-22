@@ -14,3 +14,7 @@ git push
 git push --set-upstream origin master
 cd "/home/ftp"
 pip install prophet
+cd "/home/ftp"
+git add .
+git commit -m "End of day 1"
+git push
