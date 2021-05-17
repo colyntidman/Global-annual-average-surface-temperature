@@ -18,3 +18,7 @@ cd "/home/ftp"
 git add .
 git commit -m "End of day 1"
 git push
+cd "/home/ftp"
+git add .
+git commit -m "Added python tag to readme"
+git push
