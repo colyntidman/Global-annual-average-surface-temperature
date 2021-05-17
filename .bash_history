@@ -22,3 +22,7 @@ cd "/home/ftp"
 git add .
 git commit -m "Added python tag to readme"
 git push
+cd "/home/ftp"
+git add .
+git commit -m "Added industrial revolution dates" 
+git push
