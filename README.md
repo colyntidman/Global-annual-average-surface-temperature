@@ -53,7 +53,7 @@ fig.update_layout(
     ),
 )
 fig.update_yaxes(title_text="Temperature anomaly (°C)")
-fig.update_xaxes(title_text="Year")
+fig.update_xaxes(title_text="Year", tickangle=60)
 fig.add_hline(y=0.0)
 fig.update_layout(title_x=0.5)
 
