@@ -28,7 +28,7 @@ Now lets visualize this information with a graph using pyplot :
 ```python
 import plotly.graph_objects as go
 
-fig = go.Figure(layout_title="Land-Ocean Temperature Index (°C)")
+fig = go.Figure(layout_title="<b>Land-Ocean Temperature Index (°C)</b>")
 fig.add_trace(go.Scatter(
     x = df["Year"],
     y = df["Delta"],
@@ -38,13 +38,14 @@ fig.add_trace(go.Scatter(
 fig.add_trace(go.Scatter(
     x = df["Year"],
     y = df["Detla (Smoothed)"],
-    name="Delta (Smoothed)"
+    name="Delta (Smoothed)", 
 ))
 
 fig.update_layout(
     autosize=False,
     width=1300,
     height=700,
+    plot_bgcolor='rgb(250,250,250)',
     xaxis = dict(
     tickmode = 'linear',
     tick0 = 2,
@@ -53,6 +54,8 @@ fig.update_layout(
 )
 fig.update_yaxes(title_text="Temperature anomaly (°C)")
 fig.update_xaxes(title_text="Year")
+fig.add_hline(y=0.0)
+fig.update_layout(title_x=0.5)
 
 fig.show()
 ```
@@ -68,17 +71,19 @@ We can now add the dates of the three last Industrial Revolutions
     - Forth : AI
 
 ```python
-fig.add_vrect(x0="1910", x1="1911", annotation_text="2nd IR", annotation_position="top left",
+fig.add_vrect(x0="1910", x1="1911", annotation_text="2nd IR <br> 1910", annotation_position="top left",
 annotation=dict(font_size=20, font_family="Times New Roman"),
-fillcolor="black", opacity=0.25, line_width=0)
+fillcolor="black", opacity=0.45, line_width=0)
 
-fig.add_vrect(x0="1970", x1="1971", annotation_text="3rd IR", annotation_position="top left",
+fig.add_vrect(x0="1970", x1="1971", annotation_text="3rd IR <br> 1970", annotation_position="top left",
 annotation=dict(font_size=20, font_family="Times New Roman"),
-fillcolor="yellow", opacity=0.25, line_width=0)
+fillcolor="yellow", opacity=0.45, line_width=0)
 
-fig.add_vrect(x0="2000", x1="2001", annotation_text="4th IR", annotation_position="top left",
+fig.add_vrect(x0="2000", x1="2001", annotation_text="4th IR <br> 2000", annotation_position="top left",
 annotation=dict(font_size=20, font_family="Times New Roman"),
-fillcolor="green", opacity=0.25, line_width=0)
+fillcolor="green", opacity=0.45, line_width=0)
+
+fig.update_layout(title_x=0.5, title_text="<b>Land-Ocean Temperature Index (°C)</b> <br> Focused on Industrial Revolution Dates (IR)")
 
 fig.show()
 ```

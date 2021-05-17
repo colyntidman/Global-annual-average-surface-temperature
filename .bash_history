@@ -30,3 +30,7 @@ cd "/home/ftp"
 git add .
 git commit -m "Updated readme"
 git push
+cd "/home/ftp"
+git add .
+git commit -m "Used pyplot"
+git push
