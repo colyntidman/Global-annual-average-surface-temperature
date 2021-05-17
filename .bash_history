@@ -26,3 +26,7 @@ cd "/home/ftp"
 git add .
 git commit -m "Added industrial revolution dates" 
 git push
+cd "/home/ftp"
+git add .
+git commit -m "Updated readme"
+git push

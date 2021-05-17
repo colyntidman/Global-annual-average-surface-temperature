@@ -23,38 +23,64 @@ Now lets visualize this information with a graph using pyplot :
 
 ## Output
 
+### Land-Ocean Temperature Index - Visualization
+
 ```python
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
-plt.plot(df["Year"], df["Detla (Smoothed)"], label = "Delta (Smoothed)", color='red')
-plt.plot(df["Year"], df["Delta"], label = "Delta", color='l')
+fig = go.Figure(layout_title="Land-Ocean Temperature Index (°C)")
+fig.add_trace(go.Scatter(
+    x = df["Year"],
+    y = df["Delta"],
+    name="Delta",
+))
 
-plt.xlabel('Year')
-plt.ylabel('Temperature Anomaly (°C)')
+fig.add_trace(go.Scatter(
+    x = df["Year"],
+    y = df["Detla (Smoothed)"],
+    name="Delta (Smoothed)"
+))
 
-plt.title('Land-Ocean Temperature Index (°C)')
-plt.legend()
-plt.show()
+fig.update_layout(
+    autosize=False,
+    width=1300,
+    height=700,
+    xaxis = dict(
+    tickmode = 'linear',
+    tick0 = 2,
+    dtick = 5,
+    ),
+)
+fig.update_yaxes(title_text="Temperature anomaly (°C)")
+fig.update_xaxes(title_text="Year")
+
+fig.show()
 ```
 
 According to the Paris Agreement, the delta **should not be higher than 2**. As you can see here on the graph, it increasing quickly with the years specially since 1950
 
-We can now add the dates of two Industrial Revolutions (1890-1910 and 1970-2000)
+### Land-Ocean Temperature Index - Visualization with Industrial Revolution Dates
+
+We can now add the dates of the three last Industrial Revolutions 
+
+    - Second : gaz and petrol
+    - Third : internet
+    - Forth : AI
 
 ```python
-plt.plot(df["Year"], df["Detla (Smoothed)"], label = "Delta (Smoothed)", color='red')
-plt.plot(df["Year"], df["Delta"], label = "Delta", color='lightgray')
+fig.add_vrect(x0="1910", x1="1911", annotation_text="2nd IR", annotation_position="top left",
+annotation=dict(font_size=20, font_family="Times New Roman"),
+fillcolor="black", opacity=0.25, line_width=0)
 
-plt.xlabel('Year')
-plt.ylabel('Temperature Anomaly (°C)')
+fig.add_vrect(x0="1970", x1="1971", annotation_text="3rd IR", annotation_position="top left",
+annotation=dict(font_size=20, font_family="Times New Roman"),
+fillcolor="yellow", opacity=0.25, line_width=0)
 
-plt.title('Land-Ocean Temperature Index (°C)')
-plt.legend()
+fig.add_vrect(x0="2000", x1="2001", annotation_text="4th IR", annotation_position="top left",
+annotation=dict(font_size=20, font_family="Times New Roman"),
+fillcolor="green", opacity=0.25, line_width=0)
 
-
-plt.annotate("Indus. Rev.", (1910, 0.0))
-plt.annotate("Indus. Rev.", (1970, 0.4))
-plt.show()
+fig.show()
 ```
 
 <br><br> **TODO :**
